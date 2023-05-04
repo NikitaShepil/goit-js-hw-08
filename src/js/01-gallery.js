@@ -22,41 +22,24 @@ function createHtml (items) {
 }
 listEl.insertAdjacentHTML('beforeend',createHtml(galleryItems) );
 
-const lightbox = new SimpleLightbox('.gallery a', {})
+const lightbox = new SimpleLightbox('.gallery a')
 
-listEl.addEventListener('click' ,onImgClick )
-function onImgClick(evt){
-    evt.preventDefault();
-    if(evt.target.nodeName !== 'IMG'){
-        return;
-    }
-    lightbox.open(evt.target.dataset.href);
+// listEl.addEventListener('click' ,onImgClick )
+// function onImgClick(evt){
+//     evt.preventDefault();
+//     if(evt.target.nodeName !== 'IMG'){
+//         return;
+//     }
+//     lightbox.open(evt.target.dataset.href);
 
-    document.addEventListener('keydown',onEscPress);
+//     document.addEventListener('keydown',onEscPress);
     
-    document.body.addEventListener('click', onBackdropClick);
+//     document.body.addEventListener('click', onBackdropClick);
     
-}
+// }
 
 
 
-function onEscPress  (evt){
-  if(evt.code === 'Escape'){
-      instance.close();
-      document.removeEventListener("keydown", onEscPress);
-  }
-}
 
-
-
-function onBackdropClick(evt) {
-  
-  if (evt.target === document.querySelector('.simple-lightbox')) {
-  
-    lightbox.close();
-    
-    document.body.removeEventListener('click', onBackdropClick);
-  }
-}
 
 
